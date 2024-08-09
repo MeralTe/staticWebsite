@@ -1,0 +1,84 @@
+@keyframes font-colors {
+
+    0% {
+        color: #ffffff;
+    }
+    20% {
+        color: #EBDDD4;
+    }
+
+    30% {
+        color: #D1BFB5;
+    }
+
+    70% {
+        color: #9B9293;
+    }
+
+    100% {
+        color: #EBDDD4;
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+// .fade {
+//     opacity: 0;
+//     animation: none;
+// }
+
+.showfade {
+    animation: fade 3s;
+}
+
+
+
+@keyframes jumps {
+
+    0%,
+    20%,
+    30%,
+    60%,
+    40%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px)
+    }
+}
+
+//ohne JS
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        filter: blur(5px);
+        transform: translateX(-100%);
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(0);
+    }
+}
+//immer wenn man die Stelle betritt
+.hidden {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.show {
+    opacity: 1;
+    animation: slideIn 1s forwards;
+}

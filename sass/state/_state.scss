@@ -1,0 +1,46 @@
+@use "mixins";
+@use "animations";
+
+.l-nav a:hover {
+    background-color: #ffffff;
+    color: #9B9293;
+}
+
+.logo__image:hover {
+    cursor: pointer;
+}
+
+.form__legend:hover~.form__input,
+.form__legend:hover~.form__select,
+.form__legend:hover~.form__message {
+    border-color: #cf209b;
+}
+
+.l-header {
+    container-type: inline-size;
+}
+
+@container (max-width: 900px) {
+
+    .header__img {
+        object-fit: contain;
+        height: 25.3rem;
+        max-width: 100%;
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 750px) {
+    .form__fieldset {
+        border-color: #cf209b;
+        width: 100%;
+        width: 400px;
+        animation: fade 2s forwards;
+    }
+}
+
+.salon__title {
+    padding: 20px;
+    animation: font-colors 2s infinite;
+}

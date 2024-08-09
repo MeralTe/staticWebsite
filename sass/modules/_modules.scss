@@ -1,0 +1,294 @@
+@use "mixins";
+
+// TIPP: Einfacher mit Typ-Selekoren, weil articles versch. Klassennamen haben!
+
+//Formular
+.form__fieldset {
+  @include mixins.borderdetails(2px, rgb(146, 121, 80));
+  max-width: 100%;
+  width: 500px;
+}
+
+.form__legend {
+  padding-bottom: 1rem;
+  padding: auto;
+  animation: jumps 1s ease infinite;
+}
+
+.form__p {
+  font-family: 'DScript';
+  font-size: 20px;
+  color: black;
+}
+
+.form__label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: normal;
+  margin: 3%;
+}
+
+.form__input,
+.form__select,
+.form__message {
+  transition: border-color 0.4s ease-in-out;
+  border-radius: 10px;
+}
+
+.form__message {
+  width: 50%;
+  background-color: #ccbaa9;
+  height: 5rem;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+
+}
+
+.emote {
+  width: 100px;
+  height: 100px;
+}
+
+.salon__figure {
+  position: relative;
+}
+
+//BUTTONS
+.salon__previousBtn {
+  font-family: 'Valorant';
+  font-size: 40px;
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+  position: absolute;
+  right: 75%;
+  top: 40%;
+  // border-radius: 20px;
+  color: #fff;
+  border: none;
+
+
+  //kriege nicht hin das die buttons verschwinden
+  @media (max-width: 1000px) {
+
+      position: absolute;
+      right: 90%;
+      top: 40%;
+
+      &:hover {
+        color: rgb(213, 199, 160);
+      }
+  }
+}
+
+.salon__nextBtn {
+  font-family: 'Valorant';
+  font-size: 40px;
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  right: 22%;
+  top: 40%;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+
+  &.salon__nextBtn:hover {
+    color: rgb(213, 199, 160);
+  }
+
+  @media (max-width: 1000px) {
+    left: 90%;
+    top: 40%;
+  }
+}
+
+.salon__img {
+  width: 30em;
+  height: 20em;
+}
+
+.logo__image {
+  max-height: 50px;
+  max-width: 50px;
+
+}
+
+.mitarbeiter__img {
+  border: solid 2px;
+  height: 30rem;
+
+  //GEHT NICHT KLEINER WIESO q.q
+  @media screen and (max-width: 480px) {
+    height: 20rem;
+  }
+}
+
+.mitarbeiter {
+  max-width: 100%;
+  padding-bottom: 2%;
+
+  &__text {
+    width: 40ch;
+  }
+}
+
+.salon {
+  max-width: 100%;
+
+  &__text {
+    max-width: 100%; 
+    width: 45ch;
+  }
+}
+
+//Grid
+.wrapper__container {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 4%;
+  margin-bottom: 4%;
+}
+
+.wrapper__text {
+  max-width: 100%;
+  font-family: 'DScript';
+  font-size: 26px;
+  width: 80ch;
+  margin-bottom: 4%;
+}
+
+img {
+  margin: auto;
+  object-fit: cover;
+  height: 25rem;
+}
+
+//container
+.behandlungen__container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin-top: 3%;
+  margin-bottom: 10%;
+}
+
+.behandlungen__container .container__div {
+  width: 250px;
+  height: 260px;
+  background: #f0f0f0;
+  margin: 50px;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s ease-in-out;
+  margin-top: 5%;
+  border-radius: 20px;
+}
+
+.behandlungen__imgbox {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  top: -70px;
+  left: 40px;
+  box-shadow: 0 5px 30px #111013;
+  border-radius: 20px;
+}
+
+.behandlungen__imgbox img {
+  width: 300px;
+  height: 250px;
+  max-width: 110%;
+  border-radius: 20px;
+}
+
+.behandlungen__text {
+  opacity: 0;
+
+  @media (max-width: 1550px) {
+    display: none; // Den Text ausblenden wenn es kleiner gemacht wird
+  }
+}
+
+.behandlungen__imgbox:hover img:hover~.behandlungen__text {
+  opacity: 1;
+}
+
+//damit nur das Bild scalet
+.behandlungen__imgbox:hover img {
+  transform: scale(1.1);
+}
+
+.behandlungen__text {
+  font-size: 16px;
+  color: black;
+}
+
+//Table
+
+.table__th,
+.table__td {
+  border-color: #ccc;
+}
+
+.l-table {
+  @include mixins.table(#f1dcc0, collapse);
+
+  @media screen and (max-width: 968px) {
+
+    .table__content td:nth-child(1),
+    .table__content td:nth-child(4) {
+      display: none;
+    }
+
+    @media screen and (max-width: 768px) {
+
+      .table__content td:nth-child(1),
+      .table__content td:nth-child(2),
+      .table__content td:nth-child(3),
+      .table__content td:nth-child(4) {
+        display: none;
+      }
+    }
+  }
+
+}
+
+.table__content th,
+.table__content td {
+  padding: 10px; // Lücken innerhalb der Zellen
+}
+
+.table__button {
+  font-size: 1.3em;
+  padding: 5px 12px;
+  font-family: 'DScript';
+  font-weight: 200;
+  color: rgb(204, 158, 143);
+  border: 1px solid silver;
+  background-image: linear-gradient(to top, gainsboro 0%, white 90%);
+  border-radius: 20px;
+}
+
+.main__scrollToTopBtn {
+  font-family: 'Valorant';
+  font-size: 20px;
+  display: none;
+  position: fixed;
+  bottom: 0.6rem;
+  right: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  background-color: transparent;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
